@@ -2,6 +2,9 @@
 </script>
 
 <template>
+  <div class="text-purple-400">
+    123
+  </div>
   <RouterView />
 </template>
 
