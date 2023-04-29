@@ -1,11 +1,14 @@
 import { URL, fileURLToPath } from 'node:url'
-
 import { defineConfig } from 'vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import eslintPlugin from 'vite-plugin-eslint'
 import tailwind from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,6 +16,17 @@ export default defineConfig({
     eslintPlugin({
       cache: false,
       include: ['src/**/*.vue', 'src/**/*.ts', 'src/**/*.tsx'],
+    }),
+    AutoImport({
+      imports: ['vue', 'vue-router', 'pinia'],
+      dts: 'src/auto-imports.d.ts',
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      dirs: ['src/components'],
+      include: [/\.vue$/, /\.vue\?vue/, /\.tex$/],
+      dts: 'src/components.d.ts',
+      resolvers: [ElementPlusResolver()],
     }),
     vue(),
     vueJsx(),
