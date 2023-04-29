@@ -3,7 +3,8 @@
   "include": [
     "type/**.d.ts",
     "src/**/*",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "vite/**/*.ts",
   ],
   "compilerOptions": {
     "baseUrl": ".",
