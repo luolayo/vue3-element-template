@@ -19,11 +19,11 @@ export default defineConfig({
     }),
     AutoImport({
       imports: ['vue', 'vue-router', 'pinia'],
-      dts: 'src/auto-imports.d.ts',
+      dts: 'type/auto-imports.d.ts',
       resolvers: [ElementPlusResolver()],
     }),
     Components({
-      dirs: ['src/components'],
+      dirs: ['type/components'],
       include: [/\.vue$/, /\.vue\?vue/, /\.tex$/],
       dts: 'src/components.d.ts',
       resolvers: [ElementPlusResolver()],
