@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import httpClient from '@/server'
+import { login } from '@/api/user/login'
 
-httpClient.get('/api/user/login').then((res) => {
-  console.log(res)
-})
+const res = await login()
+console.log(res)
 </script>
 
 <template>

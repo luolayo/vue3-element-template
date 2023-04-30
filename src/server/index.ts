@@ -10,11 +10,11 @@ interface HttpClientRequestConfig extends AxiosRequestConfig {
 
 /**
  * @description axios请求类
- * @class HttpClient
+ * @class Index
  * @example
  * 使用单例模式封装axios
  */
-class HttpClient {
+class Index {
   private readonly config: HttpClientRequestConfig
   private readonly instance: AxiosInstance
 
@@ -157,46 +157,50 @@ class HttpClient {
    * 发送GET请求
    * @param url 请求地址
    * @param params 请求参数
-   * @returns Promise<AxiosResponse<Result>> 返回一个Promise对象，resolve后的值是Axios返回的响应数据Result<T>
+   * @returns Promise<AxiosResponse<Result>> 返回一个Promise对象，resolve后的值是Axios返回的响应数据IResponse<T>
    */
-  public get(url: string, params?: any): Promise<AxiosResponse<IResponse>> {
-    return this.instance.get(url, {
+  public async get(url: string, params?: any): Promise<IResponse> {
+    const { data: res } = await this.instance.get(url, {
       params,
     })
+    return res
   }
 
   /**
    发送POST请求
    @param url 请求地址
    @param data 请求体数据
-   @returns Promise<AxiosResponse> 返回一个Promise对象，resolve后的值是Axios返回的响应数据Result
+   @returns Promise<AxiosResponse> 返回一个Promise对象，resolve后的值是Axios返回的响应数据IResponse
    */
-  public post(url: string, data?: any): Promise<AxiosResponse<IResponse>> {
-    return this.instance.post(url, data)
+  public async post(url: string, data?: any): Promise<IResponse> {
+    const { data: res } = await this.instance.post(url, data)
+    return res
   }
 
   /**
    发送PUT请求
    @param url 请求地址
    @param data 请求体数据
-   @returns Promise<AxiosResponse> 返回一个Promise对象，resolve后的值是Axios返回的响应数据Result
+   @returns Promise<AxiosResponse> 返回一个Promise对象，resolve后的值是Axios返回的响应数据IResponse
    */
-  public put(url: string, data?: any): Promise<AxiosResponse<IResponse>> {
-    return this.instance.put(url, data)
+  public async put(url: string, data?: any): Promise<IResponse> {
+    const { data: res } = await this.instance.put(url, data)
+    return res
   }
 
   /**
    发送DELETE请求
    @param url 请求地址
-   @returns Promise<AxiosResponse> 返回一个Promise对象，resolve后的值是Axios返回的响应数据Result
+   @returns Promise<AxiosResponse> 返回一个Promise对象，resolve后的值是Axios返回的响应数据IResponse
    */
-  public delete(url: string): Promise<AxiosResponse<IResponse>> {
-    return this.instance.delete(url)
+  public async delete(url: string): Promise<IResponse> {
+    const { data: res } = await this.instance.delete(url)
+    return res
   }
 }
 
 // 创建一个单例对象
-const httpClient = new HttpClient({
+const httpClient = new Index({
   baseURL: import.meta.env.VITE_API_URL, // 设置baseURL
   timeout: 10000, // 设置超时时间为10秒钟
 })
