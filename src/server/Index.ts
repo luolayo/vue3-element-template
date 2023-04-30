@@ -1,6 +1,7 @@
 import axios from 'axios'
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
-import { ElLoading, ElMessage } from 'element-plus'
+
+// import { ElLoading, ElMessage } from 'element-plus'
 
 interface HttpClientRequestConfig extends AxiosRequestConfig {
   Authorization?: string

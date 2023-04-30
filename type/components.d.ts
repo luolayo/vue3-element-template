@@ -9,6 +9,8 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ElLoading: typeof import('element-plus/es/components/loading')['default']
+    ElMessage: typeof import('element-plus/es/components/message')['default']
     IEpMagicStick: typeof import('~icons/ep/magic-stick')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
