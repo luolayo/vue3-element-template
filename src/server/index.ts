@@ -159,7 +159,7 @@ class Index {
    * @param params 请求参数
    * @returns Promise<AxiosResponse<Result>> 返回一个Promise对象，resolve后的值是Axios返回的响应数据IResponse<T>
    */
-  public async get(url: string, params?: any): Promise<IResponse> {
+  public async get<T = any>(url: string, params?: any): Promise<IResponse<T>> {
     const { data: res } = await this.instance.get(url, {
       params,
     })
@@ -172,7 +172,7 @@ class Index {
    @param data 请求体数据
    @returns Promise<AxiosResponse> 返回一个Promise对象，resolve后的值是Axios返回的响应数据IResponse
    */
-  public async post(url: string, data?: any): Promise<IResponse> {
+  public async post<T = any>(url: string, data?: any): Promise<IResponse<T>> {
     const { data: res } = await this.instance.post(url, data)
     return res
   }
@@ -183,7 +183,7 @@ class Index {
    @param data 请求体数据
    @returns Promise<AxiosResponse> 返回一个Promise对象，resolve后的值是Axios返回的响应数据IResponse
    */
-  public async put(url: string, data?: any): Promise<IResponse> {
+  public async put<T = any>(url: string, data?: any): Promise<IResponse<T>> {
     const { data: res } = await this.instance.put(url, data)
     return res
   }
@@ -193,7 +193,7 @@ class Index {
    @param url 请求地址
    @returns Promise<AxiosResponse> 返回一个Promise对象，resolve后的值是Axios返回的响应数据IResponse
    */
-  public async delete(url: string): Promise<IResponse> {
+  public async delete<T = any>(url: string): Promise<IResponse<T>> {
     const { data: res } = await this.instance.delete(url)
     return res
   }
