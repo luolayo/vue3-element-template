@@ -79,6 +79,7 @@ init()
     size="large"
     :model="form"
     :rules="rule"
+    @keyup.enter="signIn"
   >
     <el-row :gutter="20" style="margin-left: -10px;margin-right: -10px;">
       <el-col :span="24">
