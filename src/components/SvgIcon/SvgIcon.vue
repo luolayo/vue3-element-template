@@ -1,7 +1,7 @@
 <script setup lang="ts" name="SvgIcon">
 interface Props {
   name: string
-  perfix: string
+  perfix?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {

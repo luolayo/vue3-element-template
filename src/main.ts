@@ -10,6 +10,12 @@ import 'virtual:svg-icons-register'
 // tailwind
 import 'tailwindcss/tailwind.css'
 
+// global css
+import './assets/styles/base.css'
+
+// animate.css
+import 'animate.css'
+
 const app = createApp(App)
 
 app.use(createPinia())

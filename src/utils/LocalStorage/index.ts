@@ -1,7 +1,7 @@
 import type { Data, Key, Result, StorageCls, expire } from './type'
 import { Dictionaries } from './type.d'
 
-class Storage implements StorageCls {
+export default class Storage implements StorageCls {
   // 存储接受 key value 和过期时间 默认永久
   public set<T = any>(key: Key, value: T, expire: expire = Dictionaries.permanent) {
     const data = {
@@ -43,5 +43,3 @@ class Storage implements StorageCls {
     localStorage.removeItem(key)
   }
 }
-
-export default new Storage()
