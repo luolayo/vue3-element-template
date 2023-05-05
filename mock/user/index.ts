@@ -1,7 +1,7 @@
 import { Random } from 'mockjs'
 import type { MockMethod } from 'vite-plugin-mock'
 
-const timeout = 10000
+const timeout = 200
 const list: {
   account: string
   password: string

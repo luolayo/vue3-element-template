@@ -39,8 +39,14 @@ function setupVitePlugins() {
   }))
   plugins.push(vueSetupExtend())
   plugins.push(viteMockServe({
+    ignore: /^\_/,
     mockPath: 'mock',
-    enable: !isProduction,
+    localEnabled: !isProduction,
+    prodEnabled: isProduction,
+    injectCode: `
+          import { setupProdMockServer } from '../../mock/_createProductionServer'
+          setupProdMockServer()
+          `,
   }))
   plugins.push(vue())
   plugins.push(vueJsx())
