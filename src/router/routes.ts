@@ -13,6 +13,11 @@ const routes: RouteRecordRaw[] = [
       title: '登录',
     },
   },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: () => import('@/layout/Index.vue'),
+  },
 ]
 
 export default routes

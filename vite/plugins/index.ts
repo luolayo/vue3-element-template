@@ -27,7 +27,7 @@ function setupVitePlugins() {
     resolvers: [ElementPlusResolver()],
   }))
   plugins.push(Components({
-    dirs: ['src/components', 'src/views'],
+    dirs: ['src/components', 'src/views', 'src/components/layouts'],
     include: [/\.vue$/, /\.vue\?vue/, /\.tsx$/],
     dts: 'type/components.d.ts',
     resolvers: [ElementPlusResolver()],
