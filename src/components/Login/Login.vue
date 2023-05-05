@@ -4,7 +4,7 @@ import type { Arrayable } from 'element-plus/es/utils'
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 import { useUserStore } from '@/stores/user'
-import { login } from '@/api/user/login'
+import { login } from '@/api/user'
 import Storage from '@/utils/LocalStorage'
 
 const emit = defineEmits(['toRegister'])
@@ -69,6 +69,7 @@ async function signIn() {
   if (check.value)
     new Storage().set('login', form.value)
   ElMessage.success('登陆成功')
+  new Storage().set('token', res.data.token)
   await router.push('/admin')
 }
 

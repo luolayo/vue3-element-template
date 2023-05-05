@@ -3,6 +3,7 @@ import type { FormInstance, FormItemRule, FormRules } from 'element-plus'
 import type { Arrayable } from 'element-plus/es/utils'
 import { ref } from 'vue'
 import type { Ref } from 'vue'
+import { regitser } from '@/api/user'
 
 const emit = defineEmits(['toLogin'])
 const elFormRef = ref<FormInstance>()
@@ -37,15 +38,26 @@ const loading = ref(false)
 function toLogin() {
   emit('toLogin')
 }
-async function register() {
+async function registerBtn() {
   const valid = await elFormRef.value?.validate()
   if (!valid)
     return
+  if (form.value.password !== form.value.ConfirmPassword)
+    return ElMessage.error('Password and Confirm password are not the same')
   loading.value = true
-  setTimeout(() => {
-    loading.value = false
-  }, 1000)
-  emit('toLogin')
+  const res = await regitser({
+    account: form.value.account,
+    password: form.value.password,
+    ConfirmPassword: form.value.ConfirmPassword,
+  })
+  loading.value = false
+  if (res.code === 200) {
+    ElMessage.success('Register success')
+    toLogin()
+  }
+  else {
+    ElMessage.error(res.message)
+  }
 }
 </script>
 
@@ -78,19 +90,19 @@ async function register() {
       </el-col>
       <el-col :span="24">
         <el-form-item label="Confirm password" prop="ConfirmPassword">
-          <el-input v-model="form.password" type="password" show-password />
+          <el-input v-model="form.ConfirmPassword" type="password" show-password />
         </el-form-item>
       </el-col>
       <el-col :span="24">
         <el-form-item>
           <div class="w-full">
-            <el-button type="primary" class="w-full" size="large" :loading="loading" @click="register">
+            <el-button type="primary" class="w-full" size="large" :loading="loading" @click="registerBtn">
               Regitser
             </el-button>
           </div>
           <div class="w-full mt-4">
             <el-button class="w-full" size="large" @click="toLogin">
-              Existing account? Go to login
+              Existing account? Go to index
             </el-button>
           </div>
         </el-form-item>

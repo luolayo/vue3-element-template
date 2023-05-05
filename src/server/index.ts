@@ -46,7 +46,7 @@ class Index {
     // 关闭loading
     this.hideLoading()
     // 显示响应提示框
-    this.showMsg(response.data.message)
+    // this.showMsg(response.data.message)
     return Promise.resolve(response)
   }
 
@@ -136,7 +136,7 @@ class Index {
         console.error('您未登录或登录已过期，请重新登录！')
         this.showErrorMsg('您未登录或登录已过期，请重新登录！')
         // 跳转到登录页面
-        window.location.href = '/login'
+        window.location.href = '/index'
         break
       case 404:
         console.error('请求的资源不存在！')

@@ -8,3 +8,9 @@ export interface LoginResponseType {
   token: string
   role: number
 }
+
+export interface RegisterType {
+  account: string
+  password: string
+  ConfirmPassword: string
+}

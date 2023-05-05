@@ -64,4 +64,30 @@ export default [
       }
     },
   },
+  {
+    url: '/api/user/register',
+    method: 'post',
+    timeout,
+    response: ({ body }) => {
+      const data = body as { account: string; password: string }
+      const user = list.find(item => item.account === data.account)
+      if (user) {
+        return {
+          code: 400,
+          message: '账号已存在',
+        }
+      }
+      else {
+        list.push({
+          account: data.account,
+          password: data.password,
+          role: 1,
+        })
+        return {
+          code: 200,
+          message: 'success',
+        }
+      }
+    },
+  },
 ] as MockMethod[]
