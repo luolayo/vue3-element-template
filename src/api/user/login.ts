@@ -1,5 +1,6 @@
 import httpClient from '@/server'
+import type { LoginResponseType, LoginType } from '@/types/user'
 
-export function login(): Promise<IResponse<{ username: string;rolue: number }>> {
-  return httpClient.post('/user/login')
+export function login(data: LoginType): Promise<IResponse<LoginResponseType>> {
+  return httpClient.post('/user/login', data)
 }

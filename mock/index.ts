@@ -1,6 +1,6 @@
 import type { MockMethod } from 'vite-plugin-mock'
-import login from './user/Login'
+import user from './user'
 
 const mockMethods: MockMethod[] = []
-mockMethods.push(...login)
+mockMethods.push(...user)
 export default mockMethods

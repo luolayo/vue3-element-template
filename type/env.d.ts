@@ -1,12 +1,5 @@
 /// <reference types="vite/client" />
 export {}
-/* eslint-disable */
-declare module '*.vue' {
-  import type { DefineComponent } from 'vue'
-  const component: DefineComponent<{}, {}, any>
-  export default component
-}
-
 declare module 'mockjs';
 declare global {
   interface IResponse<T = any> {

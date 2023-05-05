@@ -56,11 +56,15 @@ async function signIn() {
   if (!flag)
     return
 
-  const res = await login()
+  const res = await login({
+    account: form.value.account,
+    password: form.value.password,
+  })
   loading.value = false
   if (res.code !== 200)
     return ElMessage.error(res.message)
   const { setUser } = useUserStore()
+  console.log(res.data)
   setUser(res.data)
   if (check.value)
     new Storage().set('login', form.value)

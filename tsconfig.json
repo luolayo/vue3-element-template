@@ -5,6 +5,8 @@
     "src/**/*",
     "src/**/*.vue",
     "vite/**/*.ts",
+    "**/**/*.vue",
+    "mock/**/*.ts",
   ],
   "compilerOptions": {
     "baseUrl": ".",
@@ -15,7 +17,8 @@
     },
     "types": [
       "element-plus/global"
-    ]
+    ],
+    "ignoreDeprecations": "5.0"
   },
   "references": [
     {

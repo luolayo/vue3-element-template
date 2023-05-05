@@ -1,13 +1,9 @@
-export const useUserStore = defineStore('user', () => {
-  const user = ref<{
-    username: string
-    rolue: number
-  }>()
+import type { LoginResponseType } from '@/types/user'
 
-  const setUser = (value: {
-    username: string
-    rolue: number
-  }) => {
+export const useUserStore = defineStore('user', () => {
+  const user = ref<LoginResponseType>()
+
+  const setUser = (value: LoginResponseType) => {
     user.value = value
   }
 
