@@ -3,7 +3,7 @@
 
 <template>
   <div class="common-layout">
-    <section class="flex border-solid border-[#eee] border-b px-5 h-[60px]">
+    <section>
       <Header />
     </section>
     <section class="flex">

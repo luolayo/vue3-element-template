@@ -39,6 +39,7 @@ const routes: RouteRecordRaw[] = [
     name: 'Admin',
     component: () => import('@/layout/Index.vue'),
     children: __adminRoutes__,
+    redirect: '/admin/dashboard',
   },
 ]
 

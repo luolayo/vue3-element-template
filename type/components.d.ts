@@ -33,6 +33,7 @@ declare module '@vue/runtime-core' {
     ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
     ElMessage: typeof import('element-plus/es/components/message')['default']
     ElRow: typeof import('element-plus/es')['ElRow']
+    ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     Footer: typeof import('./../src/components/layouts/Footer/Footer.vue')['default']
     Header: typeof import('./../src/components/layouts/Header/Header.vue')['default']

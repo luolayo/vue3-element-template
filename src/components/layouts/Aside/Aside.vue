@@ -6,36 +6,38 @@ const layout = useLayoutStore()
 </script>
 
 <template>
-  <el-menu
-    class="el-menu-vertical-demo"
-    :collapse="!layout.isCollapse"
-    :default-active="layout.active"
-    router
-  >
-    <template v-for="item in __adminRoutes__" :key="item.name">
-      <el-sub-menu v-if="item.children" :index="`/admin/${item.path}`">
-        <template #title>
+  <aside>
+    <el-menu
+      class="el-menu-vertical-demo"
+      :collapse="!layout.isCollapse"
+      :default-active="layout.active"
+      router
+    >
+      <template v-for="item in __adminRoutes__" :key="item.name">
+        <el-sub-menu v-if="item.children" :index="`/admin/${item.path}`">
+          <template #title>
+            <el-icon>
+              <svg-icon :name="item.path" />
+            </el-icon>
+            <span>{{ item.name }}</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item v-for="children in item.children" :key="children.name" :index="`/admin/${item.path}/${children.path}`">
+              {{ children.name }}
+            </el-menu-item>
+          </el-menu-item-group>
+        </el-sub-menu>
+        <el-menu-item v-else :index="`/admin/${item.path}`">
           <el-icon>
             <svg-icon :name="item.path" />
           </el-icon>
-          <span>{{ item.name }}</span>
-        </template>
-        <el-menu-item-group>
-          <el-menu-item v-for="children in item.children" :key="children.name" :index="`/admin/${item.path}/${children.path}`">
-            {{ children.name }}
-          </el-menu-item>
-        </el-menu-item-group>
-      </el-sub-menu>
-      <el-menu-item v-else :index="`/admin/${item.path}`">
-        <el-icon>
-          <svg-icon :name="item.path" />
-        </el-icon>
-        <template #title>
-          <span>{{ item.name }}</span>
-        </template>
-      </el-menu-item>
-    </template>
-  </el-menu>
+          <template #title>
+            <span>{{ item.name }}</span>
+          </template>
+        </el-menu-item>
+      </template>
+    </el-menu>
+  </aside>
 </template>
 
 <style lang="scss" scoped>
