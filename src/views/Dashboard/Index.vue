@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <RouterView />
+  dashboard
 </template>
 
 <style scoped>

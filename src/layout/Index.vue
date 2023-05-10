@@ -3,22 +3,18 @@
 
 <template>
   <div class="common-layout">
-    <el-container>
-      <el-header class="p0 flex border-solid border-[#eee] border-b">
-        <Header />
-      </el-header>
-      <el-container>
-        <el-aside width="200px">
-          <Aside />
-        </el-aside>
-        <Main />
-      </el-container>
-    </el-container>
+    <section class="flex border-solid border-[#eee] border-b px-5 h-[60px]">
+      <Header />
+    </section>
+    <section class="flex">
+      <Aside />
+      <Main />
+    </section>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.p0{
+.p0 {
   @apply p-0 #{!important}
 }
 </style>

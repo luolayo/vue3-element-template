@@ -8,3 +8,7 @@ export function login(data: LoginType): Promise<IResponse<LoginResponseType>> {
 export function regitser(data: RegisterType): Promise<IResponse> {
   return httpClient.post('/user/register', data)
 }
+
+export function logout(): Promise<IResponse> {
+  return httpClient.get('/user/logout')
+}

@@ -7,7 +7,11 @@ export default {
     './src/**/*.tsx',
   ],
   theme: {
-    extend: {},
+    extend: {
+      rotate: {
+        360: '360deg',
+      },
+    },
   },
   plugins: [],
 } satisfies Config

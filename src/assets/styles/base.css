@@ -6,3 +6,10 @@ html,body{
   box-sizing: border-box;
   overflow: hidden;
 }
+
+.header-icon{
+  @apply flex h-full px-2.5 items-center cursor-pointer pt-0.5 hover:bg-gray-50 transition duration-200;
+}
+:deep(.el-dropdown-link:focus-visible) {
+  outline: unset;
+}

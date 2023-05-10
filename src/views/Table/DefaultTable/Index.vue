@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <RouterView />
+  <div>
+    tabel / default /default
+  </div>
 </template>
 
 <style scoped>

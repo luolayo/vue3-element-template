@@ -7,6 +7,7 @@ export interface LoginResponseType {
   account: string
   token: string
   role: number
+  avatar: string
 }
 
 export interface RegisterType {

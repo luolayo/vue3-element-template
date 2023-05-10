@@ -35,6 +35,7 @@ export default [
               account: user.account,
               token: Random.string(32),
               role: user.role,
+              avatar: 'https://q1.qlogo.cn/g?b=qq&nk=1205027142&s=640',
             },
           }
         }
