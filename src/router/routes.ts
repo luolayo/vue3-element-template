@@ -30,9 +30,6 @@ const routes: RouteRecordRaw[] = [
     path: '/login',
     name: 'Login',
     component: () => import('@/views/Login/Index.vue'),
-    meta: {
-      title: '登录',
-    },
   },
   {
     path: '/admin',
